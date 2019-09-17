@@ -1,29 +1,16 @@
 export class Appointment {
-    id: string;
-    resourceType : string;
-    description : string;
-    start : Date;
-    end : Date;
-    comment : string;
-    name : {
-        use : string;
-        family : string;
-        given : string[];
+    id?: string;
+    resourceType: string;
+    description?: string;
+    start: Date;
+    end: Date;
+    comment?: string;
+    participant: {
+        actor: {
+            reference: string;
+            display: string;
+        };
+        required: string;
+        status: string;
     }[];
-    telecom : {
-        system : string;
-        value : string;
-        use : string;
-        rank : number;
-    }[];
-    address : {
-        use : string;
-        type : string;
-        text : string;
-        city : string;
-        state : string;
-        postalCode : number;
-    }[];
-    gender : string;
-    birthDate : Date;
 }

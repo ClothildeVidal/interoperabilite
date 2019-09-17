@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MedecinService } from './../medecin.service';
 import {Medecin} from '../medecin';
 
@@ -8,13 +8,10 @@ import {Medecin} from '../medecin';
   styleUrls: ['./medecin.component.css']
 })
 export class MedecinComponent implements OnInit {
+  @Input() medecin: Medecin;
 
-  medecin: Medecin;
-
-
-  constructor(private medecinService: MedecinService) { }
+  constructor() { }
 
   async ngOnInit() {
-    this.medecin = await this.medecinService.getMedecin('5d7f87d632364000151f8abe');
   }
 }
