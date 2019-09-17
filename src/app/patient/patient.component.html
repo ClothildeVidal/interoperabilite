@@ -1,0 +1,14 @@
+<div class="card" style="width: 30rem;">
+  <!-- <img src="..." class="card-img-top" alt="..."> -->
+  <div class="card-body">
+    <h5 class="card-title">PATIENT</h5>
+    <p class="card-text">Informations sur le patient</p>
+  </div>
+  <ul class="list-group list-group-flush" *ngIf="patient">
+    <li class="list-group-item">Nom : {{ patient.name[0].family | uppercase }}</li>
+    <li class="list-group-item">Prénom : {{ patient.name[0].given }}</li>
+    <li class="list-group-item">Date de naissance : {{ patient.birthDate | date:'dd MMMM yyyy' }}</li>
+    <li class="list-group-item">Téléphone : {{ patient.telecom[0].value }}</li>
+    <li class="list-group-item">Adresse : {{ patient.address[0].text }}, {{ patient.address[0].postalCode }} {{ patient.address[0].city }}</li>
+  </ul>
+</div>

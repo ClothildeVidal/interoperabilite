@@ -1,0 +1,13 @@
+<div class="card" style="width: 30rem;">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+      <h5 class="card-title">MEDECIN</h5>
+      <p class="card-text">Informations sur le médecin</p>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="medecin">
+      <li class="list-group-item">Nom : {{ medecin.name[0].family | uppercase }}</li>
+      <li class="list-group-item">Prénoms : {{ medecin.name[0].given[0] }}, {{ medecin.name[0].given[1] }}</li>
+      <li class="list-group-item">Qualification : {{ medecin.resourceType }}</li>
+      <li class="list-group-item">Adresse : {{ medecin.address[0].text }}, {{ medecin.address[0].postalCode }} {{ medecin.address[0].city }}</li>
+    </ul>
+  </div>
