@@ -24,6 +24,7 @@ export class AppointmentComponent implements OnInit {
       date: new FormControl('', Validators.required),
       hours: new FormControl('', Validators.required),
       minutes: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
     });
   }
 
@@ -33,18 +34,20 @@ export class AppointmentComponent implements OnInit {
       this.appointmentForm.value.hours,
       this.appointmentForm.value.minutes,
       this.patient,
-      this.medecin);
+      this.medecin,
+      this.appointmentForm.value.description);
   }
 
-  async add(date: Date, hours: string, minutes: string, patient: Patient, practitioner: Medecin): Promise<void> {
+  async add(date: Date, hours: string, minutes: string, patient: Patient, practitioner: Medecin, description: string): Promise<void> {
     date.setHours(parseInt(hours, 10));
     date.setMinutes(parseInt(minutes, 10));
 
     const end = new Date(date);
     end.setMinutes(end.getMinutes() + 30);
 
-    await this.appointmentService.addAppointment({
+    const appointment = await this.appointmentService.addAppointment({
       resourceType: 'Appointment',
+      description,
       start: date,
       end,
       participant: [{

@@ -1,7 +1,7 @@
 export class Appointment {
     id?: string;
     resourceType: string;
-    description?: string;
+    description: string;
     start: Date;
     end: Date;
     comment?: string;
