@@ -27,5 +27,13 @@
     <button mat-button type="submit">
         add
     </button>
-
 </form>
+
+<!-- <pre>{{appointment | json }}</pre> -->
+Vos rendez-vous : 
+<ul>
+    <li *ngFor="let app of appointment">
+        <p>Date du rendez-vous : {{ app.start | date:'dd MMMM yyyy' }} de {{ app.start | date:'H:mm' }} à {{ app.end | date:'H:mm' }}</p>
+        <p *ngIf="app.comment">Compte-rendu du médecin : {{ app.comment }}</p>
+    </li>
+</ul>

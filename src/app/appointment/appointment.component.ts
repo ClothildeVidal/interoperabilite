@@ -4,6 +4,7 @@ import { AppointmentService } from './../appointment.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Appointment } from '../appointment';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-appointment',
@@ -15,6 +16,8 @@ export class AppointmentComponent implements OnInit {
   @Input() medecin: Medecin;
 
   appointment: Appointment;
+
+  appointmentTake: Appointment;
   appointmentForm: FormGroup;
 
   constructor(private appointmentService: AppointmentService) { }
@@ -26,6 +29,9 @@ export class AppointmentComponent implements OnInit {
       minutes: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
     });
+    console.log(this.appointment);
+    this.appointment = await this.appointmentService.getAppointmentPatient('5d7f8a7432364000151f8abf');
+    console.log(this.appointment);
   }
 
   onSubmit() {
@@ -36,6 +42,8 @@ export class AppointmentComponent implements OnInit {
       this.patient,
       this.medecin,
       this.appointmentForm.value.description);
+    alert('Vous avez pris un rdv !');
+    window.location.reload();
   }
 
   async add(date: Date, hours: string, minutes: string, patient: Patient, practitioner: Medecin, description: string): Promise<void> {
@@ -45,7 +53,7 @@ export class AppointmentComponent implements OnInit {
     const end = new Date(date);
     end.setMinutes(end.getMinutes() + 30);
 
-    const appointment = await this.appointmentService.addAppointment({
+    const appointmentTake = await this.appointmentService.addAppointment({
       resourceType: 'Appointment',
       description,
       start: date,
@@ -67,4 +75,7 @@ export class AppointmentComponent implements OnInit {
       }],
     });
   }
+
+
+
 }

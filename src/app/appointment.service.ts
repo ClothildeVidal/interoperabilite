@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AppointmentService {
+
+  appointmentList: Array<Appointment> = [];
   constructor(private http: HttpClient) { }
 
   private appointmentUrl = 'https://fhir.eole-consulting.io/api/appointment';
@@ -19,4 +21,10 @@ export class AppointmentService {
     const url = `${this.appointmentUrl}/${id}`;
     return this.http.get<Appointment>(url).toPromise();
   }
+
+    getAppointmentPatient(ref: string): Promise<Appointment> {
+    const url = `${this.appointmentUrl}?participant.actor.reference=Patient/${ref}`;
+    return this.http.get<Appointment>(url).toPromise();
+  }
+
 }
