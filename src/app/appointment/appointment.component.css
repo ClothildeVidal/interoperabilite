@@ -1,0 +1,10 @@
+.button{
+    background-color:#72BFC5;
+}
+
+
+.card {
+    border : double;
+    border-radius: 5px;
+    border-color :#E75F71;
+}

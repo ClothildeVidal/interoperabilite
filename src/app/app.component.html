@@ -1,4 +1,45 @@
-<h1>{{ title }}</h1>
-<app-patient [patient]="patient"></app-patient>
-<app-medecin [medecin]="medecin"></app-medecin>
-<app-appointment [patient]="patient" [medecin]="medecin"></app-appointment>
+<div class="font">
+    <mat-toolbar class="toolbar">
+            <span class="title">MEDI'RDV</span>
+            <span class="filler"></span>
+            <img class="logo" src="assets/images/logo.png" alt="logo de l'application" />
+    
+    </mat-toolbar>
+    
+    
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+            <div class="border1">
+                    <mat-card class="card">
+                            <mat-card-header>
+                                    <div mat-card-avatar class="card1"></div>
+                                    <mat-card-title> {{ patient.name[0].family | uppercase }}</mat-card-title>
+                                    <mat-card-subtitle>{{ patient.name[0].given }}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                    <p>
+                                            <app-patient class="text" [patient]="patient"></app-patient>
+                                    </p>
+                            </mat-card-content>
+                    </mat-card>
+    
+            </div>
+    
+            <div class="border2">
+                    <mat-card class="card">
+                            <mat-card-header>
+                                    <div mat-card-avatar class="card2"></div>
+                                    <mat-card-title> {{ medecin.name[0].family | uppercase }}</mat-card-title>
+                                    <mat-card-subtitle>{{ medecin.name[0].given[0] }}, {{ medecin.name[0].given[1] }}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                    <p>
+                                            <app-medecin class="text" [medecin]="medecin"></app-medecin>
+                                    </p>
+                            </mat-card-content>
+                    </mat-card>
+            </div>
+    
+    </div>
+    
+    </div>
+    <app-appointment [patient]="patient" [medecin]="medecin"></app-appointment>

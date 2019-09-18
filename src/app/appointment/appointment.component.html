@@ -1,4 +1,5 @@
-<form [formGroup]="appointmentForm" (submit)="onSubmit()">
+<div fxLayout="row" fxLayoutAlign="center center" >
+<form [formGroup]="appointmentForm" class="RDV" (submit)="onSubmit()">
     <mat-form-field>
         <input matInput formControlName="date" [matDatepicker]="picker" placeholder="Choose a date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -24,16 +25,35 @@
         <textarea matInput placeholder="description" formControlName="description"></textarea>
     </mat-form-field>
 
-    <button mat-button type="submit">
-        add
-    </button>
+    <button mat-fab type="submit" class="button" >add</button>
 </form>
+</div>
 
 <!-- <pre>{{appointment | json }}</pre> -->
-Vos rendez-vous : 
+<!-- Vos rendez-vous : 
 <ul>
     <li *ngFor="let app of appointment">
         <p>Date du rendez-vous : {{ app.start | date:'dd MMMM yyyy' }} de {{ app.start | date:'H:mm' }} à {{ app.end | date:'H:mm' }}</p>
         <p *ngIf="app.comment">Compte-rendu du médecin : {{ app.comment }}</p>
     </li>
-</ul>
+</ul> -->
+<div fxLayout="row" fxLayoutAlign="center center" > 
+<div class="card" style="width: 30rem;">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+      <h5 class="card-title">Vos rendez-vous : </h5>
+      
+       <div *ngFor="let app of appointment">
+        <p>Date du rendez-vous : {{ app.start | date:'dd MMMM yyyy' }} de {{ app.start | date:'H:mm' }} à {{ app.end | date:'H:mm' }}</p>
+        <p *ngIf="app.comment">Compte-rendu du médecin : {{ app.comment }}</p>
+        <mat-divider></mat-divider>
+       </div>
+    </div>
+  </div>
+  </div>
+  
+  
+
+    
+
+

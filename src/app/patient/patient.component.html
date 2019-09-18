@@ -4,11 +4,19 @@
     <h5 class="card-title">PATIENT</h5>
     <p class="card-text">Informations sur le patient</p>
   </div>
-  <ul class="list-group list-group-flush" *ngIf="patient">
-    <li class="list-group-item">Nom : {{ patient.name[0].family | uppercase }}</li>
-    <li class="list-group-item">Prénom : {{ patient.name[0].given }}</li>
-    <li class="list-group-item">Date de naissance : {{ patient.birthDate | date:'dd MMMM yyyy' }}</li>
-    <li class="list-group-item">Téléphone : {{ patient.telecom[0].value }}</li>
-    <li class="list-group-item">Adresse : {{ patient.address[0].text }}, {{ patient.address[0].postalCode }} {{ patient.address[0].city }}</li>
-  </ul>
+
 </div>
+
+
+<mat-list>
+    <!-- <mat-list-item>Nom : {{ patient.name[0].family | uppercase }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item> Prénom : {{ patient.name[0].given }}</mat-list-item> -->
+    <mat-divider></mat-divider>
+    <mat-list-item>Date de naissance : {{ patient.birthDate | date:'dd MMMM yyyy' }} </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Téléphone : {{ patient.telecom[0].value }} </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Adresse : {{ patient.address[0].text }}, {{ patient.address[0].postalCode }} {{ patient.address[0].city }}</mat-list-item>
+  </mat-list>
+  

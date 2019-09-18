@@ -1,0 +1,50 @@
+.font{
+    
+    background-color: #f0f0ef;
+    }
+    
+    
+    .title{
+        font-family:'Roboto';
+        font-size :24px;
+        color:#E75F71;
+        margin-left: 45%;
+    }
+    
+    .border1{
+        margin-top : 90px;
+        margin-bottom : 50px;
+        border : double;
+        border-radius: 5px;
+        color :#E75F71;
+    }
+    .border2{
+        margin-top : 90px;
+        margin-bottom : 50px;
+        border : double;
+        border-radius: 5px;
+        color :#72BFC5;
+        }
+    .text{
+        color:black;
+    }
+    .logo{
+        margin-top : 110px;
+        margin-left : 40%;
+        width:160x;
+        height:160px;
+    }
+    
+    
+    .card {
+        max-width: 300px;
+      }
+      
+      .card1 {
+        background-image: url("/assets/images/patient.png");
+        background-size: cover;
+      }
+      .card2 {
+        background-image: url("/assets/images/doctor.png");
+        background-size: cover;
+      }
